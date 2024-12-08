@@ -1,7 +1,5 @@
-import AuthContainer from "../containers/Auth/AuthContainer"
+import AuthContainer from '../containers/Auth/AuthContainer';
 
-const routes = [
-  { path: '', element:<AuthContainer/>},
-]
+const routes = [{ path: '', element: <AuthContainer /> }];
 
-export default routes
+export default routes;
