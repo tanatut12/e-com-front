@@ -1,4 +1,4 @@
-import { Input, Checkbox, Button, Form, message } from 'antd';
+import { Input, Checkbox, Button, Form } from 'antd';
 import React from 'react';
 import { IAuthRegister } from '../../../interfaces/auth.interface';
 import { createUser } from '../../../actions/auth.action';
@@ -12,7 +12,7 @@ const RegisForm = () => {
     try {
       await createUser(values);
       form.resetFields();
-      // navigate('/login');
+      navigate('/login');
     } catch (error: any) {
       console.error('Error creating user:', error);
       const errorMessage =
