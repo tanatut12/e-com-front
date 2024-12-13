@@ -64,10 +64,9 @@ const LoginForm = () => {
         <Button
           type="primary"
           htmlType="submit"
-          onClick={() => navigate('/register')}
           className="w-full h-12 rounded-full text-white bg-[#BD8356] text-lg font-bold hover:!bg-[#A4734D] hover:!text-white hover:!border-[#BD8356] focus:!bg-[#9C6A4A] focus:!ring focus:!ring-[#BD8356] focus:!outline-none active:!bg-[#824F36] active:!scale-95 transition-all duration-150"
         >
-          create an account
+          Sign in
         </Button>
       </Form.Item>
     </Form>

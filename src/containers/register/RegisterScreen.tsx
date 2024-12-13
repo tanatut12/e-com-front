@@ -4,8 +4,11 @@ import facebookLogin from '../../assets/svgs/facebook-login.svg';
 import googleLogin from '../../assets/svgs/google-login.svg';
 import IconWhite from '../../assets/svgs/icon-white.svg';
 import RegisForm from './components/RegisForm';
+import { useNavigate } from 'react-router-dom';
 
 const RegisterScreen = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="flex w-full h-screen">
       <div
@@ -54,7 +57,7 @@ const RegisterScreen = () => {
               </button>
             </div>
             <p className="text-center mt-14">
-              Aldready have an account? <Button type="text">Sign In</Button>{' '}
+              Aldready have an account? <Button onClick={() => navigate('/login')} type="text">Sign In</Button>{' '}
             </p>
           </div>
         </div>
