@@ -83,9 +83,10 @@ const RegisForm = () => {
         <Button
           type="primary"
           htmlType="submit"
+          onClick={() => navigate('/login')}
           className="w-full h-12 rounded-full text-white bg-[#BD8356] text-lg font-bold hover:!bg-[#A4734D] hover:!text-white hover:!border-[#BD8356] focus:!bg-[#9C6A4A] focus:!ring focus:!ring-[#BD8356] focus:!outline-none active:!bg-[#824F36] active:!scale-95 transition-all duration-150"
         >
-          Sign Up
+          Sign In
         </Button>
       </Form.Item>
     </Form>
