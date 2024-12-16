@@ -1,4 +1,9 @@
-import { IAuth, IAuthLogin, IAuthLoginReturn, IAuthRegister } from '../interfaces/auth.interface';
+import {
+  IAuth,
+  IAuthLogin,
+  IAuthLoginReturn,
+  IAuthRegister,
+} from '../interfaces/auth.interface';
 import { fetch } from '../utils/fetch.util';
 
 const url = 'auth';

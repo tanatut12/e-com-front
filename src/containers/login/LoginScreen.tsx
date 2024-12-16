@@ -4,8 +4,10 @@ import facebookLogin from '../../assets/svgs/facebook-login.svg';
 import googleLogin from '../../assets/svgs/google-login.svg';
 import IconNeko from '../../assets/svgs/icon-whiteneko.svg';
 import LoginForm from './components/LoginForm';
+import { useNavigate } from 'react-router-dom';
 
 const LoginScreen = () => {
+  const navigate = useNavigate();
   return (
     <div className="flex w-full h-screen">
       <div
@@ -54,7 +56,10 @@ const LoginScreen = () => {
               </button>
             </div>
             <p className="text-center mt-14">
-              Don't have an account? <Button type="text">Sign Up</Button>{' '}
+              Don't have an account?{' '}
+              <Button onClick={() => navigate('/register')} type="text">
+                Sign Up
+              </Button>{' '}
             </p>
           </div>
         </div>
