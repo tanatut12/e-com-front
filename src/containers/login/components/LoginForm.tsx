@@ -1,20 +1,20 @@
-import { Input, Checkbox, Button, Form } from 'antd';
+import { Input, Button, Form } from 'antd';
 import React from 'react';
-import { IAuthRegister } from '../../../interfaces/auth.interface';
-import { createUser } from '../../../actions/auth.action';
+import { IAuthLogin } from '../../../interfaces/auth.interface';
+import { Login } from '../../../actions/auth.action';
 import { useNavigate } from 'react-router-dom';
 
-const RegisForm = () => {
-  const [form] = Form.useForm<IAuthRegister>();
+const LoginForm = () => {
+  const [form] = Form.useForm<IAuthLogin>();
   const navigate = useNavigate();
 
-  const onFinish = async (values: IAuthRegister) => {
+  const onFinish = async (values: IAuthLogin) => {
     try {
-      await createUser(values);
+      await Login(values);
       form.resetFields();
-      navigate('/login');
+      navigate('/');
     } catch (error: any) {
-      console.error('Error creating user:', error);
+      console.error('Error login:', error);
       const errorMessage =
         error.response?.data?.message ||
         error.message ||
@@ -28,15 +28,7 @@ const RegisForm = () => {
   };
 
   return (
-    <Form<IAuthRegister> form={form} layout="vertical" onFinish={onFinish}>
-      <Form.Item
-        label="Full name"
-        name="fullName"
-        rules={[{ required: true, message: 'Please input your Full name!' }]}
-      >
-        <Input placeholder="Full name" />
-      </Form.Item>
-
+    <Form<IAuthLogin> form={form} layout="vertical" onFinish={onFinish}>
       <Form.Item
         label="Email or Phone Number"
         name="username"
@@ -68,29 +60,18 @@ const RegisForm = () => {
         <p className="text-gray-400">Must be 8 characters at least</p>
       </Form.Item>
 
-      <Form.Item
-        name="policyAccept"
-        valuePropName="checked"
-        rules={[{ required: true, message: 'Please accept our policy' }]}
-      >
-        <Checkbox className="text-sm">
-          By creating an account means you agree to the Terms and Conditions,
-          and our Privacy Policy
-        </Checkbox>
-      </Form.Item>
-
       <Form.Item>
         <Button
           type="primary"
           htmlType="submit"
-          onClick={() => navigate('/login')}
+          onClick={() => navigate('/register')}
           className="w-full h-12 rounded-full text-white bg-[#BD8356] text-lg font-bold hover:!bg-[#A4734D] hover:!text-white hover:!border-[#BD8356] focus:!bg-[#9C6A4A] focus:!ring focus:!ring-[#BD8356] focus:!outline-none active:!bg-[#824F36] active:!scale-95 transition-all duration-150"
         >
-          Sign In
+          create an account
         </Button>
       </Form.Item>
     </Form>
   );
 };
 
-export default RegisForm;
+export default LoginForm;
