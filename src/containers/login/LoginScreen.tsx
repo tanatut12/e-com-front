@@ -56,7 +56,10 @@ const LoginScreen = () => {
               </button>
             </div>
             <p className="text-center mt-14">
-              Don't have an account? <Button onClick={() => navigate('/register')} type="text">Sign Up</Button>{' '}
+              Don't have an account?{' '}
+              <Button onClick={() => navigate('/register')} type="text">
+                Sign Up
+              </Button>{' '}
             </p>
           </div>
         </div>

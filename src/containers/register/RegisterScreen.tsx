@@ -57,7 +57,10 @@ const RegisterScreen = () => {
               </button>
             </div>
             <p className="text-center mt-14">
-              Aldready have an account? <Button onClick={() => navigate('/login')} type="text">Sign In</Button>{' '}
+              Aldready have an account?{' '}
+              <Button onClick={() => navigate('/login')} type="text">
+                Sign In
+              </Button>{' '}
             </p>
           </div>
         </div>
