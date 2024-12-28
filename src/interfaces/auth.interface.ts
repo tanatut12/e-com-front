@@ -1,4 +1,4 @@
-import { IUserLogin } from "./user.interface";
+import { IUserLogin } from './user.interface';
 
 export interface IAuth {
   testingMessage: string;
@@ -12,11 +12,10 @@ export interface IAuthRegister {
   policyAccept: boolean;
 }
 
-export interface IAuthLogin extends Pick<IAuthRegister, 'username'|'password' >{
+export interface IAuthLogin
+  extends Pick<IAuthRegister, 'username' | 'password'> {}
 
-}
-
-export interface IAuthLoginReturn{
+export interface IAuthLoginReturn {
   message: string;
   token: string;
   user: IUserLogin;
