@@ -1,25 +1,29 @@
-import { Input, Button, Form } from 'antd';
+import { Input, Button, Form, message } from 'antd';
 import React from 'react';
 import { IAuthLogin } from '../../../interfaces/auth.interface';
 import { Login } from '../../../actions/auth.action';
 import { useNavigate } from 'react-router-dom';
+import { AuthStore } from '../../../store/authStore';
 
 const LoginForm = () => {
+  const {setAuth} = AuthStore()
   const [form] = Form.useForm<IAuthLogin>();
   const navigate = useNavigate();
 
   const onFinish = async (values: IAuthLogin) => {
     try {
-      await Login(values);
+      const {data} = await Login(values);
+      setAuth({
+        id:data.user.id,
+        cartId:data.user.cartId,
+        token:data.token,
+
+      })
       form.resetFields();
       navigate('/');
-    } catch (error: any) {
+    } catch (error) {
       console.error('Error login:', error);
-      const errorMessage =
-        error.response?.data?.message ||
-        error.message ||
-        'An unexpected error occurred';
-      alert(errorMessage);
+      message.error('email or password is incorrect')
     }
   };
 

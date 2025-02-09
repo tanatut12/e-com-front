@@ -8,3 +8,8 @@ export interface IUser {
 }
 
 export interface IUserLogin extends Pick<IUser, 'id' | 'username' | 'cartId'> {}
+
+
+export interface IAuth extends Pick<IUser,'id'|'cartId'> {
+    token:string
+}

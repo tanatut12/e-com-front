@@ -1,15 +1,16 @@
 import { create } from 'zustand';
+import { IAuth } from '../interfaces/user.interface';
+
 
 interface AuthState {
-  token: string | null;
-  user: any; // You can define a more specific type for the user if needed
-  setAuth: (token: string, user: any) => void;
+  
+  user: IAuth | null;
+  setAuth: (user: IAuth) => void;
   clear: () => void;
 }
 
 export const AuthStore = create<AuthState>((set) => ({
-  token: null,
   user: null,
-  setAuth: (token, user) => set({ token, user }),
-  clear: () => set({ token: null, user: null }),
+  setAuth: (user) => set({user}),
+  clear: () => set({user:null}),
 }));
